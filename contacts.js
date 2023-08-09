@@ -1,11 +1,19 @@
+const { join } = require("path");
 const fs = require("fs").promises;
 
-//  const contactsPath = ;
+const contactsPath = fs.readFile(join(__dirname, "contacts.json"));
 
-function listContacts() {}
+const listContacts = () => {};
 
-function getContactById(contactId) {}
+const getContactById = (contactId) => {};
 
-function removeContact(contactId) {}
+const removeContact = (contactId) => {};
 
-function addContact(name, email, phone) {}
+const addContact = (name, email, phone) => {};
+
+module.exports = {
+  listContacts,
+  getContactById,
+  removeContact,
+  addContact,
+};
