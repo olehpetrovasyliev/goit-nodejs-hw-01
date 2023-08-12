@@ -28,12 +28,13 @@ const removeContact = async (contactId) => {
 
 const addContact = async (name, email, phone) => {
   const contacts = await listContacts();
-  contacts.push({
+  const updatedContacts = contacts.push({
     id: nanoid,
     name,
     email,
     phone,
   });
+  await fs.writeFile(contactsPath, JSON.stringify(updatedContacts));
 };
 
 module.exports = {
