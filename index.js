@@ -12,7 +12,7 @@ const invokeAction = async ({ action, id, name, email, phone }) => {
 
     case "add":
       const addedContact = await contactService.addContact(name, email, phone);
-    // return console.log(addedContact);
+      return console.log(addedContact);
 
     case "remove":
       // ... id
