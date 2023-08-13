@@ -2,7 +2,7 @@ const crypto = require("crypto");
 const { join } = require("path");
 const fs = require("fs").promises;
 
-const contactsPath = join(__dirname, "db/contacts.json");
+const contactsPath = join(__dirname, "db", "contacts.json");
 
 const listContacts = async () => {
   const contacts = await fs.readFile(contactsPath);
@@ -12,7 +12,8 @@ const listContacts = async () => {
 const getContactById = async (contactId) => {
   const contacts = await listContacts();
   const result = contacts.find((contact) => contact.id === contactId);
-  return result;
+
+  return result || null;
 };
 
 const removeContact = async (contactId) => {
@@ -21,7 +22,7 @@ const removeContact = async (contactId) => {
     (contact) => contact.id === contactId
   );
   if (contactIndex === -1) {
-    return;
+    return null;
   }
   const updatedContacts = contacts.splice(contactIndex, 1);
   await fs.writeFile(contactsPath, JSON.stringify(contacts));
@@ -38,7 +39,7 @@ const addContact = async (name, email, phone) => {
   };
   contacts.push(newContact);
   await fs.writeFile(contactsPath, JSON.stringify(contacts));
-  return console.log(newContact);
+  return newContacts;
 };
 
 module.exports = {

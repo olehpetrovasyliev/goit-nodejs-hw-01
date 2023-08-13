@@ -24,12 +24,12 @@ const invokeAction = async ({ action, id, name, email, phone }) => {
   }
 };
 
-// invokeAction({ action: "list" });
+invokeAction({ action: "list" });
 // invokeAction({ action: "get", id: "AeHIrLTr6JkxGE6SN-0Rw" });
 // invokeAction({ action: "remove", id: "AeHIrLTr6JkxGE6SN-0Rw" });
-invokeAction({
-  action: "add",
-  name: "test",
-  email: "test@gmail.com",
-  phone: 1,
-});
+// invokeAction({
+//   action: "add",
+//   name: "test",
+//   email: "test@gmail.com",
+//   phone: 1,
+// });
